@@ -1,0 +1,27 @@
+Deepak Antony
+CS6610
+Opengl Assignment 2 - Documentation
+Platform - Windows
+
+The assignment creates a room with outward face of the walls culled. The floor is texture mapped with a wooden plank. A cone is drawn at the center of the room. The cone is half transparent and emits 0.3 emissive light. Also it is texture mapped with the image of earth. The image of the earth appears on the front and the back of the cone. There is a light map that can be turned on and off, which lights only a small portion of the floor. This lightmap can be moved around the floor. A sphere is drawn that reflects the surrounding environment (using cube mapping). As the camera rotates the reflection rotates along with it. If the environment is updated (cone is drawn/removed or light map is drawn/removed/moved on the floor) you can click the update cubemap button to reflect the changes in the environment. As the requirement, the light is positioned 45 degree right and above the user. Also glui controls to increase or decrease the intensity of the light is provided. The intensity control allows you to change the red, green and blue component of diffuse property of the light.
+
+Graphical User Interface
+
+-Camera transformations could be performed with the 3 mouse buttons: right mouse button rotates, middle button zooms in and out(moves the camera on Z axis) and left button moves the camera in XY plane.
+-Object transformations could be performed using the 3 controls in the top of the glui controls panel.
+-Cone texturing: The checkbox draws the cone and the group buttons selects the texture function to be used to draw the texture on the cone. 
+-Light intensity: This panel provides controls to increase or decrease diffuse property of the light. Reset button resets the values. As there is no shining object, I have not provided the specular intensity control. Also ambient is set to 0.1 and no control is provided as it affects the light from all direction and the not just the light from the source.
+-Lightmap: Allows you to enable the lightmap and move it within the floor. The light map is restricted within the floor.
+-Cubemap: Allows you to enable cube mapping and draws a reflecting sphere. The update button updates the cubemap with the changed environment Eg: cone is drawn/light map is moved etc. This will be updated onto the sphere.
+
+Problems I had and how I solved them
+
+-In the beginning the cone I drew looked like it was cut when the camera was rotated. For this, what I did was, I culled the front face and drew the cone once and culled the back and drew it again.
+
+Resources used
+
+-I have used glew library for doing the lightmap (multitexturing).
+
+Design choices you made and why you made them
+
+-I have created classes the Quad (walls) and Cone. This increases reusability of the code (eg: i could draw a wall just by creating an object of this class)
